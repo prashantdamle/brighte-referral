@@ -1,0 +1,277 @@
+{
+	"info": {
+		"_postman_id": "5d31b7b5-3611-4ebf-b988-ac3ab3c9f978",
+		"name": "Brighte",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Happy Case Scenarios",
+			"item": [
+				{
+					"name": "Get Referrals",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3333/referrals",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"referrals"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Referral By Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3333/referrals/1",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"referrals",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit Referral By Id",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"givenName\": \"John1\",\n    \"email\": \"testing1@brighte.com.au\",\n    \"suburb\": \"Darlinghurst\"\n}"
+						},
+						"url": {
+							"raw": "localhost:3333/referrals/2",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"referrals",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Referral By Id",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"givenName\": \"Jane\",\n    \"surName\": \"Doe\",\n    \"email\": \"jane.doe@brighte.com.au\",\n    \"phone\": \"0456123789\",\n    \"addressLine\": null,\n    \"suburb\": null,\n    \"state\": null,\n    \"postCode\": null,\n    \"country\": \"Australia\"\n}"
+						},
+						"url": {
+							"raw": "localhost:3333/referrals",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"referrals"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Referral By Id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:3333/referrals/3",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"referrals",
+								"3"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Validation Errors",
+			"item": [
+				{
+					"name": "Edit Referral By Id - Invalid fields",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"givenName\": \"J\",\n    \"surName\": \"D\",\n    \"email\": \"testing\",\n    \"phone\": \"12345\",\n    \"suburb\": null\n}"
+						},
+						"url": {
+							"raw": "localhost:3333/referrals/2",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"referrals",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit Referral By Id - Existing email",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"givenName\": \"John1\",\n    \"email\": \"testing@brighte.com.au\",\n    \"suburb\": \"Darlinghurst\"\n}"
+						},
+						"url": {
+							"raw": "localhost:3333/referrals/2",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"referrals",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Referral By Id - Missing required fields",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n        \"addressLine\": \"1 Test Road\",\n        \"suburb\": null,\n        \"state\": null,\n        \"postCode\": null,\n        \"country\": \"Australia\"\n    }"
+						},
+						"url": {
+							"raw": "localhost:3333/referrals",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"referrals"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Referral By Id - Invalid fields",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"givenName\": \"J\",\n    \"surName\": \"D\",\n    \"email\": \"testing\",\n    \"phone\": \"12345\",\n    \"addressLine\": null,\n    \"suburb\": null,\n    \"state\": null,\n    \"postCode\": null,\n    \"country\": \"Australia\"\n}"
+						},
+						"url": {
+							"raw": "localhost:3333/referrals",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"referrals"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Referral By Id - Existing email",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"givenName\": \"Jane\",\n    \"surName\": \"Doe\",\n    \"email\": \"testing@brighte.com.au\",\n    \"phone\": \"0456123789\",\n    \"addressLine\": null,\n    \"suburb\": null,\n    \"state\": null,\n    \"postCode\": null,\n    \"country\": \"Australia\"\n}"
+						},
+						"url": {
+							"raw": "localhost:3333/referrals",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"referrals"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}

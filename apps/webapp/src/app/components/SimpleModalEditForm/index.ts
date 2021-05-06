@@ -1,0 +1,1 @@
+export { SimpleModalEditForm } from './SimpleModalEditForm';

@@ -1,0 +1,10 @@
+.editModal {
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+}
+.labels {
+    width: 100px;
+    display: inline-block;
+}
+.editBtn {
+    margin-right: 20px !important;
+}
